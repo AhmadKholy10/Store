@@ -119,7 +119,9 @@ https://templatemo.com/tm-564-plot-listing
               </div>
             </div>
           </form>
+          
         </div>
+        
         <div class="col-lg-10 offset-lg-1">
           <ul class="categories">
             <li><a href="category.html"><span class="icon"><img src="./assets/images/search-icon-01.png" alt="Home"></span> Apartments</a></li>
@@ -137,6 +139,40 @@ https://templatemo.com/tm-564-plot-listing
   <div class="popular-categories">
     <div class="container">
       <div class="row">
+      <div class="col-lg-13">
+          <form id="search-formx" name="gs" method="submit" role="add" action="#">
+              <div class="row">
+                <div class="col-lg-3 align-self-center">
+                    <fieldset>
+                        <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
+                            <option selected>All Areas</option>
+                            <option value="New Village">New Village</option>
+                            <option value="Old Town">Old Town</option>
+                            <option value="Modern City">Modern City</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                    <fieldset>
+                        <input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required>
+                    </fieldset>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                <fieldset>
+                        <input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required>
+                    </fieldset>
+                </div>
+                <div class="col-lg-3 align-self-center">                        
+                    <div >
+                      
+                        <button class="main-button"><i class="fa fa-search"></i>add</button>
+                        <button class="main-button"><i class="fa fa-search"></i>remove</button>
+                    </div>
+                    
+                </div>
+              </div>
+            </form>
+        </div>
         <div class="col-lg-12">
           <div class="section-heading">
             <h2>Popular Categories</h2>
