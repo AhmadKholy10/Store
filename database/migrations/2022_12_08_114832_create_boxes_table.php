@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('boxes', function (Blueprint $table) {
             $table->id();
+            $table->foreign('productId')->references('id')->on('product');
             $table->string('name');
             $table->integer('quantity');
             $table->date('stored_at')->nullable();
