@@ -16,4 +16,7 @@ class StoreController extends Controller
     public function index(){
         return view('index');
     }
+    public function addItemProduct(){
+        return view('add');
+    }
 }

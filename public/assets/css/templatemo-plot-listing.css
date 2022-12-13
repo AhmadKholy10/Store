@@ -1281,9 +1281,9 @@ contact
 }
 
 .contact-page .inner-content {
-  background-color: #f7f7f7;
+  /*background-color: #f7f7f7;*/
   border-radius: 7px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .contact-page .inner-content #map {
