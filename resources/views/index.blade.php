@@ -58,7 +58,7 @@ https://templatemo.com/tm-564-plot-listing
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="add">add Item/product</a></li>
+              <li><a href="addItemProduct">add Item/product</a></li>
               <li><a href="listing.html">Listing</a></li>
               <li><a href="contact.html">Contact Us</a></li> 
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 

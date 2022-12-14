@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('productId')->references('id')->on('product');
             $table->string('name');
             $table->integer('quantity');
-            $table->date('stored_at')->nullable();
+            $table->string('stored_at')->nullable();
             $table->timestamps();
         });
     }
