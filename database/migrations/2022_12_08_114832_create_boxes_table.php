@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('boxes', function (Blueprint $table) {
+        Schema::create('box', function (Blueprint $table) {
             $table->id();
-            $table->foreign('productId')->references('id')->on('product');
+            $table->foreign('productId')->references('id')->on('products');
             $table->string('name');
             $table->integer('quantity');
             $table->string('stored_at')->nullable();
