@@ -47,9 +47,11 @@
       </div>
     </div>
   </header>
+  
     <div class="container py-5">
         <div class="row">
             <div class="col-8">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -64,7 +66,7 @@
                         <tbody>
                             @foreach($getboxes as $box)
                             <tr>
-                                <th>{{$box->id}}</th>
+                                <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
                                 <td>{{$box->quantity}}</td>
                                 <td>{{$box->stored_at}}</td>
@@ -92,11 +94,49 @@
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!--<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>-->
     
-
+    <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");	
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script><script>
+        function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("example");	
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+        }
+</script>
   
 
 </body>
