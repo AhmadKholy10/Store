@@ -17,3 +17,4 @@ use App\Http\Controllers\StoreController;
 Route::get('/',[StoreController::class,'index']);
 Route::get('/addItemProduct',[StoreController::class,'addItemProduct']);
 Route::post('/addItemProduct',[StoreController::class,'DoaddItemProduct']);
+Route::get('/showStore',[StoreController::class,'ShowStoreTable']);

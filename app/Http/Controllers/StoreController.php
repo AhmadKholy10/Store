@@ -27,4 +27,8 @@ class StoreController extends Controller
         $quantity=$request->input('quantity');
 
     }
+    public function ShowStoreTable(){
+        $getboxes = DB::select('SELECT * FROM boxes');
+        return view('storeTable',['getboxes'=>$getboxes]);
+    }
 }
