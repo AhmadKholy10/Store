@@ -65,6 +65,7 @@
                         </thead>
                         <tbody>
                             @foreach($getboxes as $box)
+                            <form action="edit/{{$box->id}}" method="get">
                             <tr>
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
@@ -72,6 +73,8 @@
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 <td>{{$box->updated_at}}</td>
+                                <td><button type="button" id="remove">remove</button></td>
+                                <td><button type="submit" id="edit">edit</button></td>
                             </tr>
                             @endforeach
                            
@@ -84,6 +87,7 @@
                                 <th>stored_at</th>
                                 <th>created_at</th>
                                 <th>updated_at </th>
+                                <th>action</th>
                             </tr>
                         </tfoot>
                 </table>
@@ -97,27 +101,7 @@
     <!--<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
     <script src="assets/js/app.js"></script>-->
-    
-    <script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");	
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script><script>
+<script>
         function myFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");

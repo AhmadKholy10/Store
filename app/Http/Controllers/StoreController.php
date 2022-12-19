@@ -31,4 +31,9 @@ class StoreController extends Controller
         $getboxes = DB::select('SELECT * FROM boxes');
         return view('storeTable',['getboxes'=>$getboxes]);
     }
+    public function edit(Request $request,$boxId){
+        $getbox = DB::select('SELECT * FROM boxes where id='.$boxId);
+        $getProduct=DB::select('SELECT * FROM product');
+        return view('edit',['box'=>$getbox[0],'getProducts'=>$getProduct]);
+    }
 }
