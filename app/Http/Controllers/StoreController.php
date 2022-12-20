@@ -21,9 +21,9 @@ class StoreController extends Controller
         return view('add',['getProducts'=>$getProduct]);
     }
     public function DoaddItemProduct(Request $request){
-        if($request->input('Type')=='box'){
+        //if($request->input('Type')=='box'){
             DB::insert('INSERT into boxes (name,quantity,stored_at,productId) values(?,?,?,?)',[$request->input('name'),$request->input('quantity'),$request->input('stored_at'),$request->input('product')]);
-        }
+        //}
         $quantity=$request->input('quantity');
         return redirect('showStore');
     }
