@@ -100,7 +100,7 @@ https://templatemo.com/tm-564-plot-listing
                 </div>
               </div>
               <div class="col-lg-6 align-self-center">
-                <form id="contact" action="/addItemProduct" method="post">
+                <form id="contact" action="/edit/{{$box->id}}" method="post">
                 @csrf
                   <div class="row">
                   <!--<div class="form-group">

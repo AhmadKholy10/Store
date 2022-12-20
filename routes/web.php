@@ -19,4 +19,5 @@ Route::get('/addItemProduct',[StoreController::class,'addItemProduct']);
 Route::post('/addItemProduct',[StoreController::class,'DoaddItemProduct']);
 Route::get('/showStore',[StoreController::class,'ShowStoreTable']);
 Route::get('/edit/{id}',[StoreController::class,'edit']);
+Route::post('/edit/{id}',[StoreController::class,'DoEdit']);
 Route::post('/remove',[StoreController::class,'Remove'])->name('remove');

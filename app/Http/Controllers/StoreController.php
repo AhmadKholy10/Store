@@ -36,6 +36,13 @@ class StoreController extends Controller
         $getProduct=DB::select('SELECT * FROM product');
         return view('edit',['box'=>$getbox[0],'getProducts'=>$getProduct]);
     }
+    public function Doedit(Request $request,$boxId){
+        $getbox = DB::select('SELECT * FROM boxes where id='.$boxId);
+        DB::table('boxes')
+            ->where('id',$boxId)
+            ->update(['name'=>$request->name,'quantity'=>$request->quantity,'stored_at'=>$request->stored_at]);
+            return redirect('showStore');
+    }
     public function Remove(Request $request){
         $boxId = $request->productId;
         $boxId=DB::delete('DELETE FROM boxes WHERE id='.$boxId);

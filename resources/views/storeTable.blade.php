@@ -76,8 +76,9 @@
                                 <td><button class="remove" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <td><button type="submit" id="edit">edit</button></td>
                             </tr>
+                            </form>
                             @endforeach
-                           
+           
                         </tbody>
                         <tfoot>
                             <tr>
