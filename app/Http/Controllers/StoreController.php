@@ -25,7 +25,7 @@ class StoreController extends Controller
             DB::insert('INSERT into boxes (name,quantity,stored_at,productId) values(?,?,?,?)',[$request->input('name'),$request->input('quantity'),$request->input('stored_at'),$request->input('product')]);
         }
         $quantity=$request->input('quantity');
-
+        return redirect('showStore');
     }
     public function ShowStoreTable(){
         $getboxes = DB::select('SELECT * FROM boxes');
@@ -35,5 +35,10 @@ class StoreController extends Controller
         $getbox = DB::select('SELECT * FROM boxes where id='.$boxId);
         $getProduct=DB::select('SELECT * FROM product');
         return view('edit',['box'=>$getbox[0],'getProducts'=>$getProduct]);
+    }
+    public function Remove(Request $request){
+        $boxId = $request->productId;
+        $boxId=DB::delete('DELETE FROM boxes WHERE id='.$boxId);
+        return response()->json([$boxId]);
     }
 }

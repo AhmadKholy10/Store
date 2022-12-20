@@ -66,14 +66,14 @@
                         <tbody>
                             @foreach($getboxes as $box)
                             <form action="edit/{{$box->id}}" method="get">
-                            <tr>
+                            <tr id="{{$box->id}}">
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
-                                <td>{{$box->quantity}}</td>
+                                <td >{{$box->quantity}} </td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 <td>{{$box->updated_at}}</td>
-                                <td><button type="button" id="remove">remove</button></td>
+                                <td><button class="remove" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <td><button type="submit" id="edit">edit</button></td>
                             </tr>
                             @endforeach
@@ -120,6 +120,31 @@
             }       
         }
         }
+        $(document).ready(function(){
+        $('.remove').click(function (event) {
+          //var type=1;
+          
+          var productId =$(this).data('product');
+          $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+          $.ajax({
+            async:'false',
+            type:'Post',
+            url:"{{ route('remove') }}",
+            data:{ productId:productId,"_token": "{{ csrf_token() }}"},
+            success:function(data){
+              
+              document.getElementById(productId).remove();
+              
+            }
+          });
+
+
+        });
+      });
 </script>
   
 
