@@ -48,4 +48,10 @@ class StoreController extends Controller
         $boxId=DB::delete('DELETE FROM boxes WHERE id='.$boxId);
         return response()->json([$boxId]);
     }
+
+    public function addToBox(Request $request){
+        $final_quantity =$request->current_quantity + $request->quantity ;
+        DB::table('boxes')->update(['quantity'=>$final_quantity]);
+        return response()->json([]);
+    }
 }
