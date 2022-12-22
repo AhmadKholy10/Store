@@ -28,7 +28,9 @@ class StoreController extends Controller
         return redirect('showStore');
     }
     public function ShowStoreTable(){
-        $getboxes = DB::select('SELECT * FROM boxes');
+        //$getboxes = DB::select('SELECT * FROM boxes');
+        $getboxes=DB::select("SELECT * FROM quantity JOIN item on(item.id=quantity.itemId)  ORDER BY quantity.id DESC LIMIT 1");
+        
         return view('storeTable',['getboxes'=>$getboxes]);
     }
     public function edit(Request $request,$boxId){
@@ -47,5 +49,11 @@ class StoreController extends Controller
         $boxId = $request->productId;
         $boxId=DB::delete('DELETE FROM boxes WHERE id='.$boxId);
         return response()->json([$boxId]);
+    }
+    public function Detail(Request $request ,$boxId){
+
+        $getboxes=DB::select("SELECT * FROM quantity JOIN item on(item.id=quantity.itemId)");
+        return view('detail',['getBoxes'=>$getboxes]);
+        
     }
 }

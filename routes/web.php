@@ -15,9 +15,16 @@ use App\Http\Controllers\StoreController;
 */
 
 Route::get('/',[StoreController::class,'index']);
+//add item page
 Route::get('/addItemProduct',[StoreController::class,'addItemProduct']);
 Route::post('/addItemProduct',[StoreController::class,'DoaddItemProduct']);
-Route::get('/showStore',[StoreController::class,'ShowStoreTable']);
+//store page 
+    Route::get('/showStore',[StoreController::class,'ShowStoreTable']);
+    //remove
+    Route::post('/remove',[StoreController::class,'Remove'])->name('remove');
+//edit page 
 Route::get('/edit/{id}',[StoreController::class,'edit']);
 Route::post('/edit/{id}',[StoreController::class,'DoEdit']);
-Route::post('/remove',[StoreController::class,'Remove'])->name('remove');
+    
+//details page 
+Route::get('/detail/{id}',[StoreController::class,'Detail']);
