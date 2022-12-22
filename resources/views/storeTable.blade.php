@@ -69,14 +69,14 @@
                             <tr id="{{$box->id}}">
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
-                                <td id="quantity_value">{{$box->quantity}} </td>
+                                <td id="y{{$box->id}}">{{$box->quantity}} </td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 <td>{{$box->updated_at}}</td>
                                 <td><button class="remove" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <td><button type="submit" id="edit">edit</button></td>
-                                <td><input data-quantity="{{$box->quantity}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
-                                <td><button type="button" id="add_to_box">add to box</button></td>
+                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
+                                <td><button type="button" class="add_to_box" quantity_id={{$box->id}}>add to box</button></td>
                             </tr>
                             </form>
                             @endforeach
@@ -148,12 +148,17 @@
 
         });
       });
+</script>
 
-      $(function() {
-  $("#add_to_box").on("click",function() {
+<script> 
+$(function editQuantity(id) {
+  
+});
+ $(function() {
+  $(".add_to_box").on("click",function() {
     
-    var quantity = parseInt($("#quantity").val());
-    var current_quantity = parseInt($('#quantity_value').text());
+    var box_id = $(this).attr('quantity_id');
+    var new_quantity = document.getElementById('x' + box_id).value;
     $.ajaxSetup({
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -163,16 +168,17 @@
             async:'false',
             type:'Post',
             url:"{{ route('add_to_box') }}",
-            data:{ current_quantity:current_quantity, quantity:quantity,"_token": "{{ csrf_token() }}"},
+            data:{box_id:box_id, new_quantity:new_quantity, "_token": "{{ csrf_token() }}"},
             success:function(data){
-              
-              $("#quantity_value").text(current_quantity + quantity);
+        
+              document.getElementById('y'+box_id).innerHTML=data;
               
             }
           });
     
 });
 });
+
 </script>
   
 

@@ -21,4 +21,5 @@ Route::get('/showStore',[StoreController::class,'ShowStoreTable']);
 Route::get('/edit/{id}',[StoreController::class,'edit']);
 Route::post('/edit/{id}',[StoreController::class,'DoEdit']);
 Route::post('/remove',[StoreController::class,'Remove'])->name('remove');
+Route::get('/box',[StoreController::class,'getBoxById']);
 Route::post('/addtobox',[StoreController::class,'addToBox'])->name('add_to_box');

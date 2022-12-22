@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\Box;
 
 class StoreController extends Controller
 {
@@ -49,9 +50,21 @@ class StoreController extends Controller
         return response()->json([$boxId]);
     }
 
+    // public function getBoxById($boxId){
+    //     $box = Box::find($boxId);
+    //     return view('storeTable',compact('box','boxId'));
+    // }
+
     public function addToBox(Request $request){
-        $final_quantity =$request->current_quantity + $request->quantity ;
-        DB::table('boxes')->update(['quantity'=>$final_quantity]);
-        return response()->json([]);
+        $boxId = $request->box_id;
+        $getbox = DB::select('SELECT * FROM boxes where id='.$boxId);
+        $quantity = $getbox[0]->quantity;
+       DB::table('boxes')
+            ->where('id',$boxId)
+            ->update(['quantity'=>$request->new_quantity+$quantity]);
+       //$box = Box::find($boxId); 
+         
+
+        return response()->json([$request->new_quantity+$quantity]);
     }
 }
