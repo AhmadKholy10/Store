@@ -29,16 +29,15 @@
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="listing.html">Listing</a></li>
-              <li><a href="contact.html" class="active">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
+            <li><a href="/">Home</a></li>
+              <li><a href="/addItemProduct">add product</a></li>
+              <li><a href="/showStore">show all item</a></li>
+              
             </ul>        
             
             <!-- ***** Menu End ***** -->
@@ -47,11 +46,32 @@
       </div>
     </div>
   </header>
-  
+  <!-- ***** button style ***** -->
+  <style>
+.button {
+  background-color: #4C9CAF; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 8px;}
+.button5 {border-radius: 50%;}
+</style>
+<!-- ***** end button style ***** -->
     <div class="container py-5">
         <div class="row">
             <div class="col-8">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by id.." title="Type in a name">
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -73,12 +93,12 @@
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 
-                                <td><button class="remove" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
+                                <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <form action="edit/{{$box->id}}" method="get">
-                                  <td><button type="submit" id="edit">edit</button></td>
+                                  <td><button class="button button4" type="submit" id="edit">edit</button></td>
                                 </form>
                                 <form action="detail/{{$box->id}}" method="get">
-                                  <td><button type="submit" id="detail">details</button></td>
+                                  <td><button class="button button4" type="submit" id="detail">details</button></td>
                                 </form>
                             </tr>
                             

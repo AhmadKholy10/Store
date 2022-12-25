@@ -57,11 +57,9 @@ https://templatemo.com/tm-564-plot-listing
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="addItemProduct">add Item/product</a></li>
-              <li><a href="listing.html">Listing</a></li>
-              <li><a href="contact.html">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
+              <li><a href="/">Home</a></li>
+              <li><a href="/addItemProduct">add product</a></li>
+              <li><a href="/showStore">show all item</a></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -73,7 +71,30 @@ https://templatemo.com/tm-564-plot-listing
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+  <!-- ***** button style ***** -->
+  <style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
+</style>
+<!-- ***** end button style ***** -->
+
+</head>
   <div class="main-banner">
     <div class="container">
       <div class="row">
@@ -624,6 +645,8 @@ https://templatemo.com/tm-564-plot-listing
           </div>
         </div>
         <div class="col-lg-4">
+
+        
           <div class="helpful-links">
             <h4>Helpful Links</h4>
             <div class="row">

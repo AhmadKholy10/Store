@@ -38,8 +38,8 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="category.html">Category</a></li>
               <li><a href="listing.html">Listing</a></li>
-              <li><a href="contact.html" class="active">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
+              <li><a href="contact.html">Contact Us</a></li> 
+
             </ul>        
             
             <!-- ***** Menu End ***** -->
@@ -85,7 +85,7 @@
         options: {
             legend: {display: false},
             scales: {
-            yAxes: [{ticks: {min: 6, max:Math.max(...yValues)}}],
+            yAxes: [{ticks: {min: 0, max:Math.max(...yValues)}}],
             }
         }
         });

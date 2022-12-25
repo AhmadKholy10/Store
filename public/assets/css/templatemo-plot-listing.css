@@ -278,31 +278,31 @@ header
 }
 .header-areax .main-nav {
   min-height: 80px;
-  background: #042825;
+  background: #2e2542;
 }
 
 .header-area .main-nav a.logo {
-  background-image: url(../images/white-logo.png);
+  background-image: url(../../img/keshk1.jpg);
   width: 166px;
   height: 58px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .header-areax .main-nav a.logo {
-  background-image: url(../images/white-logo.png);
+  background-image: url(../../img/keshk1.jpg);
   width: 166px;
-  height: 58px;
+  height: 70px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .background-header .main-nav a.logo {
-  background-image: url(../images/black-logo.png);
+  background-image: url(../../img/keshk1.jpg);
   width: 164px;
-  height: 58px;
+  height: 100px;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 
@@ -363,7 +363,7 @@ header
 }
 .header-areax .main-nav .nav li:last-child a ,
 .background-header .main-nav .nav li:last-child a {
-  color: #2a2a2a !important;
+  /*color: #2a2a2a !important;*/
   text-transform: capitalize;
   padding: 0px 20px;
   font-weight: 400;
@@ -2178,7 +2178,7 @@ responsive
     color: transparent;
   }
   .header-area .main-nav a.logo {
-    background-image: url(../images/black-logo.png);
+    background-image: url(/img/keshk.jpg);
     float: left;
   }
   .header-area .logo {
