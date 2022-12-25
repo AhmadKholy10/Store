@@ -646,6 +646,7 @@ progress {
   padding-right: calc(var(--bs-gutter-x) / 2);
   padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
+  left:25%  
 }
 
 .col {
@@ -1553,6 +1554,7 @@ progress {
   .col-xl-3 {
     flex: 0 0 auto;
     width: 25%;
+    
   }
 
   .col-xl-4 {

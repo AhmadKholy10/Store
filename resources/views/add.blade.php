@@ -11,7 +11,7 @@
     <link herf="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
     <!-- Additional CSS Files -->
 
-    <link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}">
+    <!--<link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}"> -->
     <link rel="stylesheet" href="{{asset('assets/css/templatemo-plot-listing.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
