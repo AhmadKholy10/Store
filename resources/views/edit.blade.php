@@ -37,8 +37,7 @@
             <li><a href="/">Home</a></li>
               <li><a href="/addItemProduct">add product</a></li>
               <li><a href="/showStore">show all item</a></li>
-              
-            </ul>        
+            </ul>     
             
             <!-- ***** Menu End ***** -->
           </nav>

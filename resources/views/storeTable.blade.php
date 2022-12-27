@@ -71,7 +71,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-8">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by id.." title="Type in a name">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by id.." title="Type in a name"></input>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -80,7 +80,9 @@
                                 <th>quantity</th>
                                 <th>stored_at</th>
                                 <th>created_at</th>
-                                <th>updated_at </th>
+                                <th>remove</th>
+                                <th>edit</th>
+                                <th>details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,10 +93,11 @@
                                 <td>{{$box->name}}</td>
                                 <td>{{$box->quantity}} </td>
                                 <td id="y{{$box->id}}">{{$box->quantity}} </td>
-                                 <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
-                                <td><button type="button" class="add_to_box" quantity_id={{$box->id}}>add to box</button></td>s
+                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
+                                <td><button type="button" class="add_to_box" quantity_id={{$box->id}}>add to box</button></td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
+                                
                                 
                                 <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <form action="edit/{{$box->id}}" method="get">
@@ -103,7 +106,7 @@
                                 <form action="detail/{{$box->id}}" method="get">
                                   <td><button class="button button4" type="submit" id="detail">details</button></td>
                                 </form>
-            </tr>
+                            </tr>
                             
                             @endforeach
            
@@ -115,8 +118,9 @@
                                 <th>quantity</th>
                                 <th>stored_at</th>
                                 <th>created_at</th>
-                                <th>updated_at </th>
-                                <th>action</th>
+                                <th>remove</th>
+                                <th>edit</th>
+                                <th>details</th>
                             </tr>
                         </tfoot>
                 </table>
