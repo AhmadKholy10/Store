@@ -92,17 +92,20 @@
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
                                 <td>{{$box->quantity}} </td>
+                                <td id="y{{$box->id}}">{{$box->quantity}} </td>
+                                 <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
+                                <td><button type="button" class="add_to_box" quantity_id={{$box->id}}>add to box</button></td>s
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 
                                 
                                 <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
-                                <td><form action="edit/{{$box->id}}" method="get">
-                                  <button class="button button4" type="submit" id="edit">edit</button>
-                                </form></td>
-                                <td><form action="detail/{{$box->id}}" method="get">
-                                  <button class="button button4" type="submit" id="detail">details</button>
-                                </form></td>
+                                <form action="edit/{{$box->id}}" method="get">
+                                  <td><button class="button button4" type="submit" id="edit">edit</button></td>
+                                </form>
+                                <form action="detail/{{$box->id}}" method="get">
+                                  <td><button class="button button4" type="submit" id="detail">details</button></td>
+                                </form>
                             </tr>
                             
                             @endforeach
@@ -175,6 +178,37 @@
 
         });
       });
+</script>
+
+<script> 
+$(function editQuantity(id) {
+  
+});
+ $(function() {
+  $(".add_to_box").on("click",function() {
+    
+    var box_id = $(this).attr('quantity_id');
+    var new_quantity = document.getElementById('x' + box_id).value;
+    $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+          $.ajax({
+            async:'false',
+            type:'Post',
+            url:"{{ route('add_to_box') }}",
+            data:{box_id:box_id, new_quantity:new_quantity, "_token": "{{ csrf_token() }}"},
+            success:function(data){
+        
+              document.getElementById('y'+box_id).innerHTML=data;
+              
+            }
+          });
+    
+});
+});
+
 </script>
   
 

@@ -25,6 +25,6 @@ Route::post('/addItemProduct',[StoreController::class,'DoaddItemProduct']);
 //edit page 
 Route::get('/edit/{id}',[StoreController::class,'edit']);
 Route::post('/edit/{id}',[StoreController::class,'DoEdit']);
-    
 //details page 
 Route::get('/detail/{id}',[StoreController::class,'Detail']);
+Route::post('/addtobox',[StoreController::class,'addToBox'])->name('add_to_box');
