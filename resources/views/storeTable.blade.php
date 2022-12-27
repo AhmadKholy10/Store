@@ -80,7 +80,9 @@
                                 <th>quantity</th>
                                 <th>stored_at</th>
                                 <th>created_at</th>
-                                <th>updated_at </th>
+                                <th>remove</th>
+                                <th>edit</th>
+                                <th>details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,14 +94,15 @@
                                 <td>{{$box->quantity}} </td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
+                                
                                 
                                 <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
-                                <form action="edit/{{$box->id}}" method="get">
-                                  <td><button class="button button4" type="submit" id="edit">edit</button></td>
-                                </form>
-                                <form action="detail/{{$box->id}}" method="get">
-                                  <td><button class="button button4" type="submit" id="detail">details</button></td>
-                                </form>
+                                <td><form action="edit/{{$box->id}}" method="get">
+                                  <button class="button button4" type="submit" id="edit">edit</button>
+                                </form></td>
+                                <td><form action="detail/{{$box->id}}" method="get">
+                                  <button class="button button4" type="submit" id="detail">details</button>
+                                </form></td>
                             </tr>
                             
                             @endforeach
@@ -112,8 +115,9 @@
                                 <th>quantity</th>
                                 <th>stored_at</th>
                                 <th>created_at</th>
-                                <th>updated_at </th>
-                                <th>action</th>
+                                <th>remove</th>
+                                <th>edit</th>
+                                <th>details</th>
                             </tr>
                         </tfoot>
                 </table>

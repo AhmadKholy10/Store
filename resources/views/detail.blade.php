@@ -35,10 +35,9 @@
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="listing.html">Listing</a></li>
-              <li><a href="contact.html">Contact Us</a></li> 
+            <li><a href="/">Home</a></li>
+              <li><a href="/addItemProduct">add product</a></li>
+              <li><a href="/showStore">show all item</a></li>
 
             </ul>        
             
@@ -68,7 +67,7 @@
             xValues.push(i*10);
             console.log(boxes[i].quantity);
         }
-        console.log(Math.max(...yValues));
+        console.log(Math.min(...yValues));
 
         new Chart("myChart", {
         type: "line",
@@ -85,7 +84,7 @@
         options: {
             legend: {display: false},
             scales: {
-            yAxes: [{ticks: {min: 0, max:Math.max(...yValues)}}],
+            yAxes: [{ticks: {min: Math.min(0,Math.min(...yValues)),max:Math.max(...yValues)}}],
             }
         }
         });
