@@ -69,4 +69,18 @@ class StoreController extends Controller
         return view('detail',['getBoxes'=>$getboxes]);
         
     }
+
+    public function addToBox(Request $request){
+        $boxId = $request->box_id;
+        $getbox = DB::select('SELECT * FROM boxes where id='.$boxId);
+        $quantity = $getbox[0]->quantity;
+        $itemId = $getbox[0]->itemId;
+       DB::table('boxes')
+            ->where('id',$boxId)
+            ->update(['quantity'=>$request->new_quantity+$quantity]);
+       //$box = Box::find($boxId); 
+       DB::insert('INSERT into quantity (itemID, quntity) values(?,?)',[$itemId, $request->new_quantity+$quantity]);
+
+        return response()->json([$request->new_quantity+$quantity]);
+    }
 }
