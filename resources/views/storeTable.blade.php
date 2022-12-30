@@ -94,7 +94,7 @@
                                 <td>{{$box->quantity}} </td>
                                 <td id="y{{$box->id}}">{{$box->quantity}} </td>
                                 <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
-                                <td><button type="button" class="add_to_box" quantity_id={{$box->id}}>add to box</button></td>
+                                <td><button type="button" class="add_to_box button button4" quantity_id={{$box->id}}>add to box</button></td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
                                 

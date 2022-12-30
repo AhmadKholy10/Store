@@ -33,7 +33,7 @@ class StoreController extends Controller
     public function ShowStoreTable(){
         //$getboxes = DB::select('SELECT * FROM boxes');
         //$getboxes=DB::select("SELECT * FROM quantity JOIN item on(item.id=quantity.itemId)  ORDER BY quantity.id DESC LIMIT 1");
-        $getboxes=DB::select("SELECT  * FROM quantity JOIN( item ) on item.id=quantity.itemId WHERE quantity.id IN (SELECT  max(quantity.id) FROM quantity JOIN( item ) on item.id=quantity.itemId GROUP by itemId)");
+        $getboxes=DB::select("SELECT  * FROM quantity JOIN( item ) on item.id=quantity.itemId WHERE quantity.id IN (SELECT  max(quantity.id) FROM quantity JOIN( item ) on item.id=quantity.itemId GROUP by itemId) Order by itemId");
         //$getboxes=DB::select("SELECT * FROM quantity JOIN item on(item.id=quantity.itemId) where item.id=".$boxId);
         return view('storeTable',['getboxes'=>$getboxes]);
     }
