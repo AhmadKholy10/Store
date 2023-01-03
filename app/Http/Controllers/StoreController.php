@@ -74,7 +74,6 @@ class StoreController extends Controller
         $boxId = $request->box_id;
         $getbox = DB::select('SELECT * FROM quantity where Itemid='.$boxId .' ORDER BY id DESC LIMIT 1');
         $quantity = $getbox[0]->quantity;
-        //$itemId = $getbox[0]->itemId;
      
        DB::insert('INSERT into quantity (itemID, quantity) values(?,?)',[$boxId, $request->new_quantity+$quantity]);
 

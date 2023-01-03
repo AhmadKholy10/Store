@@ -23,11 +23,11 @@
 
 </head>
 <body>
-<header class="header-areax header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
+<header class="header-areax header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s" >
+    <div class="container" >
       <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
+        <div class="col-12" >
+          <nav class="main-nav" style="overflow-x:auto;">
             <!-- ***** Logo Start ***** -->
             <a href="/" class="logo">
             </a>
@@ -48,6 +48,10 @@
   </header>
   <!-- ***** button style ***** -->
   <style>
+    .inner
+  {
+    display: inline-block;
+  }
 .button {
   background-color: #4C9CAF; /* Green */
   border: none;
@@ -68,9 +72,9 @@
 .button5 {border-radius: 50%;}
 </style>
 <!-- ***** end button style ***** -->
-    <div class="container py-5">
+    <div class="container py-5" style="overflow-x:auto;">
         <div class="row">
-            <div class="col-8">
+            <div class="col-8" >
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by id.." title="Type in a name"></input>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -78,9 +82,8 @@
                                 <th>id</th>
                                 <th>Name</th>
                                 <th>quantity</th>
-                                <th>stored_at</th>
-                                <th>created_at</th>
-                                <th>remove</th>
+                                <th>add quantity</th>
+                                <th>stored at</th>
                                 <th>edit</th>
                                 <th>details</th>
                             </tr>
@@ -91,21 +94,20 @@
                             <tr id="{{$box->id}}">
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
-                                <td>{{$box->quantity}} </td>
                                 <td id="y{{$box->id}}">{{$box->quantity}} </td>
-                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
-                                <td><button type="button" class="add_to_box button button4" quantity_id={{$box->id}}>add to box</button></td>
+                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity"  type="number" id="quantity" step=1>
+                                <button type="button" class="add_to_box button button4 " quantity_id={{$box->id}}>add to box</button></td>
                                 <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
-                                
+                                <div><div class="inner"><td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></div>
+                                <div class="inner"><form action="edit/{{$box->id}}" method="get">
+                                  <button class="button button4" type="submit" id="edit">edit</button>
+                                </form></div>
+                                <div class="inner"><form action="detail/{{$box->id}}" method="get">
+                                  <button class="button button4" type="submit" id="detail">details</button></td>
+                                </form></div></div>
                                 
-                                <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
-                                <form action="edit/{{$box->id}}" method="get">
-                                  <td><button class="button button4" type="submit" id="edit">edit</button></td>
-                                </form>
-                                <form action="detail/{{$box->id}}" method="get">
-                                  <td><button class="button button4" type="submit" id="detail">details</button></td>
-                                </form>
+                                
                             </tr>
                             
                             @endforeach
@@ -116,9 +118,8 @@
                                 <th>id</th>
                                 <th>Name</th>
                                 <th>quantity</th>
-                                <th>stored_at</th>
-                                <th>created_at</th>
-                                <th>remove</th>
+                                <th>add quantity</th>
+                                <th>stored at</th>
                                 <th>edit</th>
                                 <th>details</th>
                             </tr>
