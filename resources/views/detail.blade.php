@@ -63,9 +63,9 @@
         console.log(boxes[0].quantity);
 
         for(let i=0;i<boxes.length;i++){
-            yValues.push(boxes[i].quantity);
+            yValues.push(boxes[i].quntity);
             xValues.push(i*10);
-            console.log(boxes[i].quantity);
+            console.log(boxes[i].quntity);
         }
         console.log(Math.min(...yValues));
 

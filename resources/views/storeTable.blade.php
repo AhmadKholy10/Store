@@ -91,14 +91,10 @@
                             <tr id="{{$box->id}}">
                                 <td>{{$box->id}}</td>
                                 <td>{{$box->name}}</td>
-                                <td>{{$box->quantity}} </td>
+                {{--                 <td>{{$box->quantity}} </td> --}}
                                 <td id="y{{$box->id}}">{{$box->quantity}} </td>
-                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
-                                <td><button type="button" class="add_to_box button button4" quantity_id={{$box->id}}>add to box</button></td>
-                                <td>{{$box->stored_at}}</td>
+                                <td>{{$box->stored_at}}</td>
                                 <td>{{$box->created_at}}</td>
-                                
-                                
                                 <td><button  class="remove button button4" data-product="{{$box->id}}" type="button" id="remove">remove</button></td>
                                 <form action="edit/{{$box->id}}" method="get">
                                   <td><button class="button button4" type="submit" id="edit">edit</button></td>
@@ -106,6 +102,8 @@
                                 <form action="detail/{{$box->id}}" method="get">
                                   <td><button class="button button4" type="submit" id="detail">details</button></td>
                                 </form>
+                                <td><input id="x{{$box->id}}" value="{{0}}" class="quantity" min="0" type="number" id="quantity" step=1></td>
+                                <td><button type="button" class="add_to_box button button4" quantity_id={{$box->id}}>add to box</button></td>    
                             </tr>
                             
                             @endforeach
@@ -189,6 +187,7 @@ $(function editQuantity(id) {
     
     var box_id = $(this).attr('quantity_id');
     var new_quantity = document.getElementById('x' + box_id).value;
+    //console.log(new_quantity);
     $.ajaxSetup({
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -200,7 +199,7 @@ $(function editQuantity(id) {
             url:"{{ route('add_to_box') }}",
             data:{box_id:box_id, new_quantity:new_quantity, "_token": "{{ csrf_token() }}"},
             success:function(data){
-        
+              console.log("suc");
               document.getElementById('y'+box_id).innerHTML=data;
               
             }
@@ -208,6 +207,7 @@ $(function editQuantity(id) {
     
 });
 });
+
 
 </script>
   

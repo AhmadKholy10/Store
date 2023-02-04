@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Models\Box;
+use Psy\Readline\Hoa\Console;
 
 class StoreController extends Controller
 {
@@ -74,10 +75,9 @@ class StoreController extends Controller
         $boxId = $request->box_id;
         $getbox = DB::select('SELECT * FROM quantity where Itemid='.$boxId .' ORDER BY id DESC LIMIT 1');
         $quantity = $getbox[0]->quantity;
-        //$itemId = $getbox[0]->itemId;
-     
-       DB::insert('INSERT into quantity (itemID, quantity) values(?,?)',[$boxId, $request->new_quantity+$quantity]);
+        $quantity += $request->new_quantity;
+       DB::insert('INSERT into quantity (itemID, quantity) values(?,?)',[$boxId, $quantity]);
 
-        return response()->json([$request->new_quantity+$quantity]);
+        return response()->json([$quantity]);
     }
 }

@@ -51,7 +51,10 @@
 										</div>
 								</div>
 						</div>
-						
+                        <div>
+						<a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+						<form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+						</div>
 						<style> 
 							@media screen and (min-width: 480px) {
 								.col-xl-3{
