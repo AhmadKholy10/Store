@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -26,7 +27,7 @@ use App\Http\Controllers\User\UserController;
 Route::get('/', function(){
     return view('welcome');
 });
-//Route::get('/home', [StoreController::class, 'index'])->name('home');
+Route::get('/home', [StoreController::class, 'index'])->name('home');
 
 Route::get('/addItemProduct',[StoreController::class,'addItemProduct']);
 Route::post('/addItemProduct',[StoreController::class,'DoaddItemProduct']);
@@ -58,6 +59,20 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::view('/home', 'indexStore')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
     });
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+       
+    Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+          Route::view('/login','dashboard.admin.login')->name('login');
+          Route::post('/check',[AdminController::class,'check'])->name('check');
+    });
+
+    Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
+        Route::get('/home',[StoreController::class,'index'])->name('home');
+        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+    });
+
 });
 
 

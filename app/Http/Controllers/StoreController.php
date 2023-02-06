@@ -19,7 +19,7 @@ class StoreController extends Controller
         return view('indexStore');
     }
     public function addItemProduct(){
-        $getProduct=DB::select('SELECT * FROM product');
+        $getProduct=DB::select('SELECT * FROM item');
         return view('add',['getProducts'=>$getProduct]);
     }
     public function DoaddItemProduct(Request $request){

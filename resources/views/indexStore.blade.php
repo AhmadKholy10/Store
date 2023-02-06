@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>keshk const</title>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'><link rel="stylesheet" href="assets/css/app.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+<link rel="stylesheet" href={{ asset('assets/css/app.css') }}>
 
 </head>
 <body>
@@ -54,6 +55,11 @@
                         <div>
 						<a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
 						<form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+						</div>
+
+                        <div>
+						<a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('admin-logout-form').submit();">AdminLogout</a>
+						<form action="{{ route('admin.logout') }}" method="post" class="d-none" id="admin-logout-form">@csrf</form>
 						</div>
 						<style> 
 							@media screen and (min-width: 480px) {
